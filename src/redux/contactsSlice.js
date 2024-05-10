@@ -38,9 +38,9 @@ const slice = createSlice({
         state.error = false;
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
-        state.items = state.items.filter((item) => {
-          item.id !== action.payload.id;
-        });
+        state.items = state.items.filter((item) => 
+          item.id !== action.payload.id
+        );
       })
       .addCase(deleteContact.rejected, (state) => {
         state.error = true;
@@ -49,5 +49,9 @@ const slice = createSlice({
 });
 
 export const selectContacts = (state) => state.contacts.items;
+
+export const selectLoading = (state)=>state.contacts.loading;
+
+export const selectError = (state)=>state.contacts.error;
 
 export default slice.reducer;

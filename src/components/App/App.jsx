@@ -8,6 +8,7 @@ import ContactForm from "../ContactForm/ContactForm.jsx";
 import LoadingMessage from '../LoadingMessage/LoadingMessage'
 import ErrorMessage from "../ErrorMessage/EroorMessage.jsx";
 import { fetchContacts } from "../../redux/contactsOps.js";
+import { selectError, selectLoading } from "../../redux/contactsSlice.js";
 
 
 export default function App() {
@@ -16,8 +17,8 @@ export default function App() {
     dispatch(fetchContacts())
   }, [dispatch]);
 
-  const isLoading= useSelector((state)=>{state.contacts.loading})
-  const isError= useSelector((state)=>{state.contacts.error})
+  const isLoading= useSelector(selectLoading)
+  const isError= useSelector(selectError)
 
   return (
     <div className={css.container}>

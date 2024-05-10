@@ -8,6 +8,7 @@ export default function ContactList() {
   const contacts = useSelector(selectContacts);
   const filtered = useSelector(getFilters);
 
+
   const filterContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filtered.toLowerCase())
   );
